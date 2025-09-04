@@ -8,13 +8,13 @@
     <template #content>
       <div class="flex flex-col gap-2">
         <div class="flex flex-row justify-stretch gap-2 p-2 border-b border-gray-300 ">
-          <div v-for="l in criteria.levels" class="grow text-center">{{ l.score[0] }} - {{ l.score[1] }}</div>
+          <div v-for="l in criteria.levels" class="grow flex-1 text-center">{{ l.score[0] }} - {{ l.score[1] }}</div>
         </div>
         <div class="flex flex-row justify-stretch gap-2">
-          <div v-for="l in criteria.levels" class="grow text-center"
+          <div v-for="l in criteria.levels" class="grow flex-1 text-center"
             :class="[
               'grow text-center p-2',
-              feedback.score >= l.score[0] && feedback.score < l.score[1] ? 'bg-green-100' : ''
+              feedback.score >= l.score[0] && feedback.score <= l.score[1] ? 'bg-green-100' : ''
             ]"
           >{{ l.comment }}</div>
         </div>
